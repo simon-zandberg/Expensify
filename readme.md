@@ -1,3 +1,5 @@
+#git commands
+
 git init - Create a new git repo in the current folder
 git status - view the changes to the project
 git add - Add files to the staging area
