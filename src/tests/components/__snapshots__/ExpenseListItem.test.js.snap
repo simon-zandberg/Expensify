@@ -14,13 +14,12 @@ exports[`should render ExpenseListItem 1`] = `
   <td
     align="right"
   >
-    $
-    1950.00
+    $1,950.00
   </td>
   <td
     align="right"
   >
-    28 Dec 1969
+    28 December 1969
   </td>
 </tr>
 `;
