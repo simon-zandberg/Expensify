@@ -17,7 +17,7 @@ exports[`should display summary for 2 expenses 1`] = `
     Viewing 
     2
      expenses totalling 
-    $2,400.00
+    $451.95
   </h3>
 </div>
 `;

@@ -4,7 +4,7 @@ import selectExpenses from '../selectors/expenses';
 import expensesTotal from '../selectors/expenses-total';
 import numeral from 'numeral';
 
-export default (props) => {
+export const ExpensesSummary = (props) => {
     if (props.expenses.length > 0) {
         return (
             <div>
@@ -17,8 +17,8 @@ export default (props) => {
         return null;
 };
 
-// const mapStateToProps = (state, props) => ({
-//     expenses: selectExpenses(state.expenses, state.filters)
-// });
+const mapStateToProps = (state, props) => ({
+    expenses: selectExpenses(state.expenses, state.filters)
+});
 
-// export default connect(mapStateToProps)(ExpensesSummary);
+export default connect(mapStateToProps)(ExpensesSummary);

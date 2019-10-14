@@ -3,7 +3,7 @@
 exports[`should create NotFoundPage snapshot 1`] = `
 <div>
   <Connect(ExpenseListFilters) />
-  <Component />
+  <Connect(ExpensesSummary) />
   <Connect(ExpenseList) />
 </div>
 `;
