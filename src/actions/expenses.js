@@ -29,9 +29,7 @@ export const startAddExpense = (expenseData = {}) => {
 // REMOVE_EXPENSE
 export const removeExpense = ({ id } = {}) => ({
     type: 'REMOVE_EXPENSE',
-    expense: {
-        id
-    }
+    id
 });
 
 export const startRemoveExpense = ({ id } = {}) => {

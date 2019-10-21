@@ -22,9 +22,24 @@ test('Should setup remove expense action object', () => {
 
     expect(action).toEqual({
         type: 'REMOVE_EXPENSE',
-        expense: {
-            id: 123
-        }
+        id: 123
+    });
+});
+
+test('Should remove an expense from Firebase', (done) => {
+    const store = createMockStore({});
+    const id = expenses[0].id;
+
+    store.dispatch(startRemoveExpense({ id })).then(() => {
+        const actions = store.getActions();
+        expect(actions[0]).toEqual({
+            type: 'REMOVE_EXPENSE',
+            id
+        });
+        return database.ref(`expense/${id}`).once('value');
+    }).then((snapshot) => {
+        expect(snapshot.val()).toBeFalsy();
+        done();
     });
 });
 
@@ -120,19 +135,6 @@ test('Should fetch the expenses from Firebase', (done) => {
         expect(actions[0]).toEqual({
             type: 'SET_EXPENSES',
             expenses
-        });
-        done();
-    });
-});
-
-test('Should remove an expense from Firebase', (done) => {
-    const store = createMockStore({});
-
-    store.dispatch(startRemoveExpense(expenses[0].id)).then(() => {
-        const actions = store.getActions();
-        expect(actions[0]).toEqual({
-            type: 'REMOVE_EXPENSE',
-            id: expenses[0].id
         });
         done();
     });
