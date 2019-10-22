@@ -10,7 +10,7 @@ export class EditExpensePage extends React.Component {
     };
 
     onRemoveExpense = () => {
-        this.props.startRemoveExpense({ id: this.props.expense });
+        this.props.startRemoveExpense({ id: this.props.expense.id });
         this.props.history.push('/');
     };
 

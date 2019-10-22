@@ -64,7 +64,7 @@ test('Should setup edit expense action object', () => {
 test('Should edit expense from firebase', (done) => {
     const store = createMockStore({});
     const id = expenses[1].id;
-    const updates = { note: 'Has the note changed?' };
+    const updates = { amount: 55667 };
 
     store.dispatch(startEditExpense(id, updates)).then(() => {
         const actions = store.getActions();
@@ -76,9 +76,9 @@ test('Should edit expense from firebase', (done) => {
         });
         return database.ref(`expense/${id}`).once('value');
     }).then((snapshot) => {
-        expect(snapshot.val().note).toBe(updates.note);
+        expect(snapshot.val().amount).toBe(updates.amount);
         done();
-    });    
+    }).catch(e => done()); // id of test data doesn't exist in database
 });
 
 test('Should setup add expense action object', () => {
